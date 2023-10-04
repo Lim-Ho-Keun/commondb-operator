@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: commondb
+  namespace: 5gc-commondb-sts
+  labels:
+    app: commondb
+spec:
+  ports:
+  - port: 3306
+    name: commondb-port
+  clusterIP: None
+  selector:
+    app: commondb

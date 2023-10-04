@@ -1,0 +1,27 @@
+# permissions for end users to view commondbs.
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  labels:
+    app.kubernetes.io/name: clusterrole
+    app.kubernetes.io/instance: commondb-viewer-role
+    app.kubernetes.io/component: rbac
+    app.kubernetes.io/created-by: commondb-operator
+    app.kubernetes.io/part-of: commondb-operator
+    app.kubernetes.io/managed-by: kustomize
+  name: commondb-viewer-role
+rules:
+- apiGroups:
+  - fiveg.kt.com
+  resources:
+  - commondbs
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - fiveg.kt.com
+  resources:
+  - commondbs/status
+  verbs:
+  - get
